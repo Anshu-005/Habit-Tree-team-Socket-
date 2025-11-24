@@ -7,10 +7,13 @@ function getRandomPosition() {
     y: Math.floor(Math.random() * 260)
   };
 }
-
+let count=0;
 function updateScore() {
-  const box = document.getElementById("score");
-
+  const box = document.getElementById("scrp");
+    count++;
+    console.log(count);
+    
+    box.textContent = `⭐ Score: ${count}`;
 }
 
 function renderHabits() {
@@ -23,6 +26,7 @@ function renderHabits() {
 
     const label = document.createElement("label");
     const checkbox = document.createElement("input");
+    checkbox.id="chk";
     checkbox.type = "checkbox";
 
 
@@ -73,6 +77,14 @@ document.getElementById("habitForm").onsubmit = (e) => {
   document.getElementById("habitName").value = "";
   renderHabits();
 };
-
+let re=document.getElementById("res")
+re.addEventListener('click',()=>{
+    document.getElementById("fruitContainer").innerHTML="";
+    const ch=document.getElementById("chk")
+    ch.checked=false;
+    count=0;
+    const box = document.getElementById("scrp");
+    box.textContent = `⭐ Score: ${count}`;
+    
+})
 renderHabits();
-
